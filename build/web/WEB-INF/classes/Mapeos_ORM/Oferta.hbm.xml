@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+ 
+ <hibernate-mapping>
+     
+     <union-subclass name="Entidades_de_Transferencia_de_Informacion.Oferta" table="Oferta" extends="Entidades_de_Transferencia_de_Informacion.Mensaje">
+        
+
+        <property name="precio" column="precio" type="int"/>
+        <property name="tiempo" column="tiempo" type="string"/>
+         
+         
+     </union-subclass>
+     
+ </hibernate-mapping>

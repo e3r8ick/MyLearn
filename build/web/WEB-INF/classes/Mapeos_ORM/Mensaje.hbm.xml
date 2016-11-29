@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+ 
+ <hibernate-mapping>
+     
+     <class name="Entidades_de_Transferencia_de_Informacion.Mensaje" abstract="true">
+
+         <id name="id">
+            <generator class="assigned" />
+        </id>
+        
+        <property name="idAutor" column="idAutor" type="int"/>
+        <property name="idProyecto" column="idProyecto" type="int"/>
+        <property name="comentario" column="comentario" type="string"/>
+        <property name="fecha" column="fecha" type="string"/>
+        <property name="hora" column="hora" type="string"/>
+        
+
+    </class>
+ 
+ 
+ </hibernate-mapping>

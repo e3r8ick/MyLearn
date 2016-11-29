@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+ 
+ <hibernate-mapping>
+     
+     <class name="Entidades_de_Transferencia_de_Informacion.Curso" table="Curso">
+
+         <id name="idCurso">
+            <generator class="assigned" />
+        </id>
+        
+        <property name="nombre" column="nombre" type="string"/>
+        <property name="descripcion" column="Descripcion" type="string"/>
+        <property name="numeroDeGrupo" column="NumeroGrupo" type="int"/>
+        <property name="notaMinima" column="notaMinima" type="float"/>
+        <property name="estado" column="estado" type="int"/>
+        <property name="fechaDeInicio" column="FechaInicio" type="string"/>
+        <list name="estudiantes" table="CursoEstudiante" inverse="true" >
+            <key column="idCurso" />
+            <list-index column="ORDEN" />
+            <many-to-many class="Entidades_de_Transferencia_de_Informacion.Estudiante" column="idEstudiante" />
+        </list>
+        <list name="profesores" table="CursoProfesor" inverse="true" >
+            <key column="idCurso" />
+            <list-index column="ORDEN" />
+            <many-to-many class="Entidades_de_Transferencia_de_Informacion.Profesor" column="idProfesor" />
+        </list>
+        <list name="logros"> 
+            <key column="idLogro" /> 
+            <index column="ORDEN" /> 
+            <one-to-many class="Entidades_de_Transferencia_de_Informacion.Logro"/> 
+        </list>
+        
+    </class>
+ 
+ 
+ </hibernate-mapping>

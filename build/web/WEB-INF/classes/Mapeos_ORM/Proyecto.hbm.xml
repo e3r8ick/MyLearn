@@ -1,0 +1,47 @@
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+ 
+ <hibernate-mapping>
+     
+     <class name="Entidades_de_Transferencia_de_Informacion.Proyecto" table="Proyecto">
+
+         <id name="idProyecto">
+            <generator class="assigned" />
+        </id>
+        
+        <property name="idEstudiante" column="idEstudiante" type="int"/>
+        <property name="idProfesor" column="idProfesor" type="int"/>
+        <property name="idEmpresa" column="idEmpresa" type="int"/>
+        <property name="idCurso" column="idCurso" type="int"/>
+        <property name="nombre" column="nombre" type="string"/>
+        <property name="descripcion" column="Decripcion" type="string"/>
+        <property name="estado" column="Estado" type="int"/>
+        <property name="tipo" column="Tipo" type="int"/>
+        <property name="fechaInicio" column="FechaInicio" type="string"/>
+        <property name="fechaFinal" column="FechaFinal" type="string"/>
+        <property name="fechaLimiteOferta" column="FechaLimiteOferta" type="string"/>
+        <property name="presupuesto" column="Presupuesto" type="int"/>
+        <property name="calificacion" column="Calificacion" type="float"/>
+        <property name="problematica" column="Problematica" type="string"/>
+        <property name="adjunto" column="Adjunto" type="string"/>
+        <list name="comentarios"> 
+            <key column="idComentarios" /> 
+            <index column="ORDEN" /> 
+            <one-to-many class="Entidades_de_Transferencia_de_Informacion.Comentario" /> 
+        </list>
+        <list name="ofertas"> 
+            <key column="idOfertas" /> 
+            <index column="ORDEN" /> 
+            <one-to-many class="Entidades_de_Transferencia_de_Informacion.Oferta" /> 
+        </list>
+        <list name="tecnologias" table="ListaTecnologia" >
+            <key column="idProyecto" />
+            <list-index column="ORDEN" />
+            <many-to-many class="Entidades_de_Transferencia_de_Informacion.Tecnologia" column="idTecnologia" />
+        </list>
+
+    </class>
+ 
+ 
+ </hibernate-mapping>

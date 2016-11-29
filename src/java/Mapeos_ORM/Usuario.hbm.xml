@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+ 
+ <hibernate-mapping>
+     
+     <class name="Entidades_de_Transferencia_de_Informacion.Usuario" abstract="true">
+
+         <id name="id">
+            <generator class="assigned" />
+        </id>
+        
+        <property name="nombre" column="nombre" type="string"/>
+        <property name="apellido" column="apellido" type="string"/>
+        <property name="usuario" column="usuario" type="string"/>
+        <property name="contrasenia" column="contrasenia" type="string"/>
+        <property name="email" column="email" type="string"/>
+        <property name="telefono" column="telefono" type="int"/>
+        <property name="repositorio" column="repositorio" type="int"/>
+        <property name="fotoOLogo" column="FotoOLogo" type="binary"/>
+        
+
+    </class>
+ 
+ 
+ </hibernate-mapping>

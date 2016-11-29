@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+ 
+ <hibernate-mapping>
+     
+     <union-subclass name="Entidades_de_Transferencia_de_Informacion.Empresa" table="Empresa" extends="Entidades_de_Transferencia_de_Informacion.Usuario">
+
+        <property name="nombreEmpresarial" column="nombreEmpresarial" type="string"/>
+        <property name="pais" column="pais" type="string"/>
+        <property name="sitioWeb" column="sitioWeb" type="string"/>
+        <list name="proyectos"> 
+            <key column="idEmpresa" /> 
+            <index column="ORDEN" /> 
+            <one-to-many class="Entidades_de_Transferencia_de_Informacion.Proyecto" /> 
+        </list>
+
+     </union-subclass>
+     
+ </hibernate-mapping>

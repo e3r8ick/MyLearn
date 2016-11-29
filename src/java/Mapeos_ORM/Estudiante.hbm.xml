@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+ 
+ <hibernate-mapping>
+     
+     <union-subclass name="Entidades_de_Transferencia_de_Informacion.Estudiante" table="Estudiante" extends="Entidades_de_Transferencia_de_Informacion.Usuario">
+        
+
+         
+        <property name="carne" column="carne" type="string"/>
+        <property name="pais" column="pais" type="string"/>
+        <property name="universidad" column="universidad" type="string"/>
+        <property name="linkHojaVida" column="linkHojaVida" type="string"/>
+        <list name="cursos" table="CursoEstudiante" >
+            <key column="idEstudiante" />
+            <list-index column="ORDEN" />
+            <many-to-many class="Entidades_de_Transferencia_de_Informacion.Curso" column="idCurso" />
+        </list>
+        <list name="proyectos"> 
+            <key column="idEstudiante" /> 
+            <index column="ORDEN" /> 
+            <one-to-many class="Entidades_de_Transferencia_de_Informacion.Proyecto"/> 
+        </list>
+        <list name="tecnologias" table="TecnologiaEstudiante" >
+            <key column="idEstudiante" />
+            <list-index column="ORDEN" />
+            <many-to-many class="Entidades_de_Transferencia_de_Informacion.Tecnologia" column="idTecnologia" />
+        </list>
+
+     </union-subclass>
+     
+ </hibernate-mapping>

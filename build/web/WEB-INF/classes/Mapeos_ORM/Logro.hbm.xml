@@ -1,0 +1,21 @@
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+ 
+ <hibernate-mapping>
+     
+     <class name="Entidades_de_Transferencia_de_Informacion.Logro" table="Logro">
+
+         <id name="idLogro">
+            <generator class="assigned" />
+        </id>
+        
+        <property name="nombre" column="nombre" type="string"/>
+        <property name="valor" column="valor" type="float"/>
+        <property name="idCurso" column="idCurso" type="int"/>
+        <property name="idEstudiaante" column="idEstudiaante" type="int"/>
+        
+    </class>
+ 
+ 
+ </hibernate-mapping>

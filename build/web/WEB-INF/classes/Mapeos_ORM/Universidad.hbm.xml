@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+ 
+ <hibernate-mapping>
+     
+     <class name="Entidades_de_Transferencia_de_Informacion.Universidad" table="Universidad">
+
+         <id name="idUniversidad">
+            <generator class="assigned" />
+        </id>
+        
+        <property name="nombre" column="nombre" type="string"/>
+        
+
+    </class>
+ 
+ 
+ </hibernate-mapping>

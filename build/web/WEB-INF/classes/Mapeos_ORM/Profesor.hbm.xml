@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+ 
+ <hibernate-mapping>
+     
+     <union-subclass name="Entidades_de_Transferencia_de_Informacion.Profesor" table="Profesor" extends="Entidades_de_Transferencia_de_Informacion.Usuario">
+        
+
+        <property name="universidad" column="universidad" type="string"/>
+        <property name="horaAtencion" column="horaAtencion" type="string"/>
+        <list name="cursos" table="CursoProfesor" >
+            <key column="idProfesor" />
+            <list-index column="ORDEN" />
+            <many-to-many class="Entidades_de_Transferencia_de_Informacion.Curso" column="idCurso" />
+        </list>
+
+     </union-subclass>
+     
+ </hibernate-mapping>
