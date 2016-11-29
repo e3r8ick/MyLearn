@@ -39,7 +39,7 @@ public class ControlInicio {
         String passWord="";
         
         if (req != null) {
-            if (!req.getParameter("user").isEmpty() && !req.getParameter("pass").isEmpty()) {
+            if (req.getParameter("user").isEmpty() && !req.getParameter("pass").isEmpty()) {
                 userName = req.getParameter("user");
                 passWord = req.getParameter("pass");
                 Tupla t =admin.validarUsuario(userName, passWord);
